@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 // pages for this kit
-import Index from "./views/Index";
-import IndexView from "./views/pages/IndexView.jsx";
-import Category from "./views/pages/category";
+import Index from "views/Index";
+import IndexView from "views/pages/IndexView.jsx";
+import Category from "views/pages/category";
 import { Routes, Route, useNavigate, Navigate, useLocation } from "react-router-dom";
-import ContentPage from "./views/index-sections/ContentPage";
-import TagPage from "./views/pages/tagPage";
+import ContentPage from "views/index-sections/ContentPage";
+import TagPage from "views/pages/tagPage";
+import TempPage from "views/pages/tempPage";
 
 
 export default function App() {
@@ -23,7 +24,9 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Index />}>
                     <Route index element={<IndexView />} />
+                    <Route path="/:id" element={<TempPage />} />
                     <Route path="/c/:categoryName" element={<Category />} />
+                    <Route path="/c/:categoryName/p/:id" element={<ContentPage />} />
                     <Route path="/c/:categoryName/p/:id" element={<ContentPage />} />
                     <Route path="/t/:tag" element={<TagPage />} />
                 </Route>
